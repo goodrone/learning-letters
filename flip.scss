@@ -1,0 +1,31 @@
+@import "utils.scss";
+
+.flip-container {
+    perspective: 100vh;
+    position: absolute;
+    &.flip-flipped .flip-inside {
+        transform: rotateY(180deg);
+        @include absolute-fill;
+    }
+    &, & .flip-inside, & .flip-front, & .flip-back {
+        @include absolute-fill;
+    }
+    & .flip-inside {
+        transition: .3s;
+        transform-style: preserve-3d;
+    }
+    & .flip-front, & .flip-back {
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+    }
+    & .flip-front {
+        z-index: 2;
+        transform: rotateY(0deg);
+    }
+    & .flip-back {
+        transform: rotateY(180deg);
+    }
+}

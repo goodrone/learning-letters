@@ -1,0 +1,177 @@
+@import "utils.scss";
+
+html, body {
+  font: 14px/1.21 'Helvetica Neue', arial, sans-serif;
+  font-weight: 400;
+  padding: 0; margin: 0;
+  overflow: hidden;
+}
+$toolbar-size: 48px;
+$toolbar-offset: $toolbar-size + 32px;
+$toolbar-padding: 12px;
+
+.menu {
+    max-width: 500px;
+    margin: 0 auto;
+    & button {
+        padding: .3em 1em;
+        background: green;
+        border: none;
+        color: white;
+        font-size: large;
+        display: block;
+        margin: 4px 0;
+        width: 200px;
+    }
+}
+
+.selector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: auto;
+    width: 80%;
+    margin: 0 auto;
+    & button {
+        height: 1.7em;
+        width: 1.7em;
+        border: none;
+        background-color: #e8e887;
+        font-size: x-large;
+        font-weight: bold;
+        margin: .25em;
+        padding: 0;
+        border-radius: .4em;
+        &.number {
+            background-color: #a3e0f3;
+        }
+    }
+}
+
+.buttons {
+    display: flex;
+    & > button {
+        width: $toolbar-size;
+        height: $toolbar-size;
+        border: none;
+        background-color: tan;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        box-shadow: 2px 2px 3px 0px #efefef;
+        &:hover {
+            transition: .5s;
+            filter: grayscale(.6) brightness(1.4);
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+#display {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+@keyframes slidein {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+#window {
+    user-select: none;
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    & > header {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: $toolbar-size;
+        text-align: center;
+        color: white;
+        text-shadow: 1px 1px 0px #c3c3c3;
+        font-weight: bold;
+        font-size: large;
+        background: linear-gradient(to bottom, rgb(214, 214, 214) 0%,rgb(255, 255, 255) 100%);
+        animation-delay: 1s;
+        animation-duration: .4s;
+        animation-name: slidein;
+        animation-fill-mode: forwards;
+    }
+    & > header, & > footer {
+        position: absolute;
+        z-index: 1;
+    }
+    & > main {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        @include absolute-fill;
+    }
+}
+
+@media (orientation: portrait) {
+    #display {
+        font-size: 90vw;
+        flex-direction: row;
+    }
+    #window {
+        flex-direction: column;
+        & > footer {
+            min-height: $toolbar-size;
+            left: 0;
+            bottom: 0;
+            left: $toolbar-padding;
+            right: $toolbar-padding;
+            margin-bottom: $toolbar-padding;
+        }
+        & > main {
+            flex-direction: column;
+        }
+    }
+    .buttons {
+        flex-direction: row;
+    }
+    .buttons button.button-push {
+        margin-left: auto;
+    }
+}
+@media (orientation: landscape) {
+    #display {
+        font-size: 90vh;
+        flex-direction: column;
+    }
+    #window {
+        flex-direction: row;
+        & > footer {
+            min-width: $toolbar-size;
+            top: 0;
+            right: 0;
+            top: $toolbar-padding;
+            bottom: $toolbar-padding;
+            margin-right: $toolbar-padding;
+        }
+        & > main {
+            flex-direction: row;
+        }
+    }
+    .buttons {
+        flex-direction: column;
+        height: 100%;
+    }
+    .buttons button.button-push {
+        margin-top: auto;
+    }
+}
