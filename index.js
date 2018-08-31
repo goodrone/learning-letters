@@ -135,7 +135,7 @@ export default class App extends Component {
         this.state.show = "display";
         this.state.text = null;
         this.items = [].concat(
-            "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ".split("").map(
+            "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ".split("").map(
                 letter => ({key: letter})),
             "123456789".split("").map(
                 letter => ({key: letter, className: "number"})),
