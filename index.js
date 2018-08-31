@@ -1,9 +1,7 @@
 import './style';
 import { Component } from 'preact';
+import { Display } from './display';
 
-const Display = ({text}) => {
-    return <div id="display">{text}</div>;
-};
 const Button = ({color, className, push, handler, arg, children}) => {
     const wrapper = (e) => {
         e.preventDefault();

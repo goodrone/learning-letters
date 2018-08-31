@@ -71,13 +71,6 @@ $toolbar-padding: 12px;
     }
 }
 
-#display {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
 @keyframes slidein {
     from {
         opacity: 1;
@@ -123,10 +116,6 @@ $toolbar-padding: 12px;
 }
 
 @media (orientation: portrait) {
-    #display {
-        font-size: 90vw;
-        flex-direction: row;
-    }
     #window {
         flex-direction: column;
         & > footer {
@@ -149,10 +138,6 @@ $toolbar-padding: 12px;
     }
 }
 @media (orientation: landscape) {
-    #display {
-        font-size: 90vh;
-        flex-direction: column;
-    }
     #window {
         flex-direction: row;
         & > footer {

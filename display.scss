@@ -1,0 +1,18 @@
+.display {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+@media (orientation: portrait) {
+    .display {
+        font-size: 90vw;
+        flex-direction: row;
+    }
+}
+@media (orientation: landscape) {
+    .display {
+        font-size: 90vh;
+        flex-direction: column;
+    }
+}
