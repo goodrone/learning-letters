@@ -9,6 +9,7 @@ html, body {
 $toolbar-size: 48px;
 $toolbar-offset: $toolbar-size + 32px;
 $toolbar-padding: 12px;
+::backdrop { background: white; }
 
 .menu {
     max-width: 500px;
